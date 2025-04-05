@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('measurements.urls')),
     path('', include('variables.urls')),
     path('health-check/', views.healthCheck),
-    path('consulta-paciente/', views.consulta_paciente_experimento, name='consulta_paciente_experimento'),
+    path('patient-history/', views.patient_history, name='patient_history'),
 
 ]
