@@ -84,6 +84,7 @@ DATABASES = {
         'PASSWORD': 'monitoring_user',
         'HOST': '10.128.0.6',
         'PORT': '',
+        'CONN_MAX_AGE': 60,
     }
 }
 
