@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'measurements',
     'variables',
     'monitoring',
+    'alarms',
 ]
 
 MIDDLEWARE = [
