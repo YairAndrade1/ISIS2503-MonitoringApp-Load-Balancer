@@ -37,3 +37,5 @@ class IntegrityAlarm(models.Model):
             "message": self.message,
             "timestamp": self.timestamp
         }
+    class Meta:
+        db_table = 'alarms_integrityalarm'
