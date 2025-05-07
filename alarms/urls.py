@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('alarms/', views.alarm_list),
     path('alarmsValidate/<int:variable_id>', views.generate_alarm),
+    path('integrity-alarms/', views.integrity_alarm_list),
 ]

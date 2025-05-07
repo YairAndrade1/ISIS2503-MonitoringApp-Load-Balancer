@@ -22,3 +22,18 @@ class Alarm(models.Model):
             'limitExceeded': self.limitExceeded
         }
         return alarm
+    
+class IntegrityAlarm(models.Model):
+    patient_id = models.IntegerField()
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"[{self.timestamp}] Paciente {self.patient_id}: {self.message}"
+
+    def toJson(self):
+        return {
+            "patient_id": self.patient_id,
+            "message": self.message,
+            "timestamp": self.timestamp
+        }

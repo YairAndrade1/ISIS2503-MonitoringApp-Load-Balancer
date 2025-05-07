@@ -1,6 +1,8 @@
 import time
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, JsonResponse
+
+from alarms.views import create_integrity_alarm
 from .utils import verificar_firma
 
 from monitoring.models import Patient
@@ -28,6 +30,7 @@ def verificar_integridad_paciente(patient_id):
     if verificar_firma(contenido, paciente.digital_signature):
         return "OK: La información no ha sido modificada."
     else:
+        create_integrity_alarm(paciente.id, "ALERTA: La historia clínica fue modificada por un tercero.")
         return "ALERTA: La historia clínica fue modificada por un tercero."
 
 

@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from variables.logic.variable_logic import get_variable_by_id
 from .logic.logic_alarm import get_alarms, get_measurements_by_variable, create_alarm
+from alarms.models import IntegrityAlarm
 
 def alarm_list(request):
     alarms = get_alarms()
@@ -23,3 +24,17 @@ def generate_alarm(request, variable_id):
         return JsonResponse(alarm.toJson(), safe=False)
     else:
         return JsonResponse({'message': 'No alarm created'}, status=200)
+    
+
+def create_integrity_alarm(patient_id, message):
+    alarm = IntegrityAlarm.objects.create(
+        patient_id=patient_id,
+        message=message
+    )
+    return alarm
+
+
+def integrity_alarm_list(request):
+    alarms = IntegrityAlarm.objects.all().order_by('-timestamp')
+    context = [a.toJson() for a in alarms]
+    return JsonResponse(context, safe=False)
