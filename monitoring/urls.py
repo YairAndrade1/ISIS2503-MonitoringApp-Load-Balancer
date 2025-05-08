@@ -24,5 +24,5 @@ urlpatterns = [
     path('', include('variables.urls')),
     path('health-check/', views.healthCheck),
     path('patient-history/', views.patient_history, name='patient_history'),
-    path('', include('verifier.urls')),
+
 ]

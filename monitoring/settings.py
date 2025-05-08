@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'variables',
     'monitoring',
     'alarms',
-    'verifier',
 ]
 
 MIDDLEWARE = [
