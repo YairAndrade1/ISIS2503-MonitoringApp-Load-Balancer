@@ -16,7 +16,7 @@ class Patient(models.Model):
         self.digital_signature = firmar_contenido(contenido)
         super().save(*args, **kwargs)
 
-         try:
+        try:
             requests.post('http://34.9.16.155:5000/verificar-integridad/', json={
                 "patient_id": self.id,
                 "name": self.name,
